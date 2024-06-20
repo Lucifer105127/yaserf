@@ -1,0 +1,134 @@
+{
+  "_from": "fca-jiser-main",
+  "_id": "fca-jiser-main@1.3.8",
+  "_inBundle": false,
+  "_integrity": "sha512-Cz8viS+c3DLt2q9Q7S0Mj01whU9L2sHmGGGv5hG8dXyGdcAg7JYiaeKwVnJqVJ3TywiLuq7z2sb/f9aXDsUfog==",
+  "_location": "/fca-jiser-main",
+  "_phantomChildren": {
+    "are-we-there-yet": "4.0.0",
+    "asynckit": "0.4.0",
+    "aws-sign2": "0.7.0",
+    "aws4": "1.11.0",
+    "caseless": "0.12.0",
+    "cheerio-select": "2.1.0",
+    "combined-stream": "1.0.8",
+    "console-control-strings": "1.1.0",
+    "extend": "3.0.2",
+    "forever-agent": "0.6.1",
+    "gauge": "5.0.0",
+    "har-validator": "5.1.5",
+    "http-signature": "1.2.0",
+    "is-typedarray": "1.0.0",
+    "isstream": "0.1.2",
+    "json-stringify-safe": "5.0.1",
+    "lru-cache": "6.0.0",
+    "mime-types": "2.1.35",
+    "oauth-sign": "0.9.0",
+    "parse5": "7.0.0",
+    "parse5-htmlparser2-tree-adapter": "7.0.0",
+    "performance-now": "2.1.0",
+    "proxy-from-env": "1.1.0",
+    "qs": "6.5.3",
+    "safe-buffer": "5.2.1",
+    "set-blocking": "2.0.0",
+    "tough-cookie": "2.5.0",
+    "tunnel-agent": "0.6.0",
+    "uuid": "3.4.0"
+  },
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "fca-jiser-main",
+    "name": "fca-jiser-main",
+    "escapedName": "fca-jiser-main",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/fca-jiser-main/-/fca-jiser-main-1.3.8.tgz",
+  "_shasum": "d60cf4720924ac526f312cb11e726f379a78a5bb",
+  "_spec": "fca-jiser-main",
+  "_where": "/home/runner/ZiaRein-2",
+  "author": {
+    "name": "Avery, David, Maude, Benjamin"
+  },
+  "bugs": {
+    "url": "https://github.com/"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "aes-js": "latest",
+    "axios": "latest",
+    "bluebird": "^2.11.0",
+    "chalk": "4.1.2",
+    "chalkercli": "^1.6.4",
+    "cheerio": "latest",
+    "crypto": "latest",
+    "dotenv": "^16.0.1",
+    "figlet": "^1.5.2",
+    "https-proxy-agent": "latest",
+    "mqtt": "latest",
+    "npmlog": "latest",
+    "os": "^0.1.2",
+    "request": "latest",
+    "semver": "latest",
+    "systeminformation": "^5.17.9",
+    "tinycolor2": "^1.6.0",
+    "websocket-stream": "latest"
+  },
+  "deprecated": false,
+  "description": "Facebook Chat Api",
+  "devDependencies": {
+    "eslint": "^7.5.0",
+    "mocha": "^7.0.1",
+    "prettier": "^1.11.1"
+  },
+  "engines": {
+    "node": ">=10.x"
+  },
+  "eslintConfig": {
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "sourceType": "module"
+    },
+    "rules": {
+      "linebreak-style": [
+        "error",
+        "unix"
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "no-unused-vars": [
+        1,
+        {
+          "argsIgnorePattern": "^_"
+        }
+      ]
+    }
+  },
+  "keywords": [
+    "fca-kaneki"
+  ],
+  "license": "MIT",
+  "name": "fca-jiser-main",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/"
+  },
+  "scripts": {
+    "lint": "eslint **.js",
+    "prettier": "prettier utils.js src/* --write",
+    "test": "mocha"
+  },
+  "version": "1.3.8"
+}

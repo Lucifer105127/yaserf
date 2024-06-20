@@ -1,0 +1,18 @@
+{
+  "DeveloperMode": true,
+  "commandDisabled": [],
+  "eventDisabled": [],
+  "language": "en",
+  "BOTNAME": "kazuma lvl.69",
+  "PREFIX": ">",
+  "OPERATOR": [
+    "100077357343941"
+  ],
+  "ADMINBOT": [
+    "100077357343941",
+    "",
+    "",
+    ""
+  ],
+  "note": "make sure that the bot name you entered is all lowercase"
+}
