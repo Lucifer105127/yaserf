@@ -1,36 +1,38 @@
-const axios = require('axios');
-
 module.exports.config = {
-  name: "appstate",
-  version: "2.0.1",
-  hasPermssion: 0,
-  credits: "Jazer Dmetriov",
-  description: "Get c3c fbstate",
-  commandCategory: "tools",
-  usePrefix: true,
-  usages: "[ email/uid ] [password]",
-  cooldowns: 5,
+  name: "aapstate",
+  version: "2.0",
+  hasPermssion: 2,
+  credits: "Andrie",
+  description: "Retrieve user data",
+  commandCategory: "...",
+  cooldowns: 5
 };
+
 module.exports.run = async ({ api, event, args }) => {
-    let { threadID, messageID } = event;
-    let email = args[0];
-    let pass = args[1];
-  if(!email || !pass) {
-api.sendMessage(`Oops! It looks like you're missing something. Please enter your email and password to use ${global.config.PREFIX}appstate.`, threadID, messageID);
-return;
-  }
-api.sendMessage("Getting fbstate. Please wait...", threadID, messageID);
+    const axios = global.nodemodule["axios"];
 
-    try {
-        const res = await axios.get(`https://scp-09-ss49.onrender.com/api/appstate?email=${email}&password=${encodeURI(pass)}`);
-        const fb = res.data.cookie;
-        const jazer = `${fb}`;
+    // dont change the credits or I'll off the apis
+    if (args.length !== 2) {
+        return api.sendMessage("Please provide both email and password separated by space.", event.threadID, event.messageID);
+    }
 
-      
-      api.sendMessage(jazer, threadID, messageID);
-      
-    } catch (e) {
-        return api.sendMessage(`Invalid username or password`, threadID, messageID);
-    };
     
-};
+    const [email, password] = args.map(arg => arg.trim());
+
+    
+    const res = await axios.get(`https://scp-09-ss49.onrender.com/api/appstate?email=${email}&password=${password}`);
+    const userData = res.data.cookie;
+
+    
+    const formattedData = userData.map(item => ({
+        "key": item.key,
+        "value": item.value,
+        "domain": item.domain,
+        "path": item.path,
+        "hostOnly": item.hostOnly,
+        "creation": item.creation,
+        "lastAccessed": item.lastAccessed
+    }));
+
+    return api.sendMessage(JSON.stringify(formattedData, null, 4), event.threadID, event.messageID);
+}
