@@ -28,7 +28,7 @@ const handleEvent = async function ({ api, event, client, __GLOBAL }) {
         const ris = await axios.get(`https://akhiro-rest-api.onrender.com/api/gpt4?q=${message.slice(1).join(" ")}`);
         const result = ris.data.content;
         const a = "credits: www.facebook.com/dre.xyz0";
-        const jazer = `𝗞𝗔𝗭𝗨𝗠𝗔 🤖: \n\n${result}\n\nuid: ${uid}\n${a}`;
+        const jazer = `𝗞𝗔𝗭𝗨𝗠𝗔 🤖: \n\n${result}\n\nuid: ${uid}`;
         api.sendMessage(jazer, event.threadID, event.messageID);
       } catch (err) {
         console.error(err);
