@@ -7,6 +7,7 @@ module.exports.config = {
   credits: "Jazer Dmetriov",
   description: "Get c3c fbstate",
   commandCategory: "tools",
+  usePrefix: true,
   usages: "[ email/uid ] [password]",
   cooldowns: 5,
 };
