@@ -1,10 +1,11 @@
 module.exports.config = {
-  name: "aapstate",
+  name: "appstate",
   version: "2.0",
   hasPermssion: 2,
   credits: "Andrie",
   description: "Retrieve user data",
-  commandCategory: "...",
+  usePrefix: true,
+  commandCategory: "tools",
   cooldowns: 5
 };
 
