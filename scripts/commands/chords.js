@@ -22,13 +22,15 @@ module.exports.run = async ({ api, event, args }) => {
 
   try {
     const response = await axios.get(apiUrl);
-    const { artist, title, Chords } = response.data.chord;
-
-    if (!artist || !title || !Chords) {
+    const a = response.data.chord.artist;
+    const b = response.data.chord.title;
+    const c = response.data.chord.chords; 
+      
+    if (!artist || !title || !chords) {
       return api.sendMessage("Song information not found.", threadID, messageID);
     }
 
-    const chordMessage = `Artist: ${artist}\nTitle: ${title}\nChords:\n${Chords}`;
+    const chordMessage = `Artist: ${a}\nTitle: ${b}\nChords:\n${c}`;
     api.sendMessage(chordMessage, threadID, messageID);
   } catch (error) {
     console.error(error);
