@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "ryuko/catalogs/ryukoa.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "ryuko/catalogs/website/ryuko.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/ryuko/catalogs/website/ryuko.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/ryuko/catalogs/ryukoa.js"
+    }
+  ]
+}
