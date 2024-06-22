@@ -32,7 +32,7 @@ module.exports.handleEvent = async function ({ api, event }) {
 
     api.sendMessage("removing background, please wait...", threadID, async () => {
       try {
-        const response = await axios.get(`https://jonellccprojectapis10.adaptable.app/api/rbg?imageUrl=${encodeURIComponent(photoUrl)}`);
+        const response = await axios.get(`https://allinoneapis-jgyx.onrender.com/api/try/removebg?url=${encodeURIComponent(photoUrl)}`);
         const processedImageURL = response.data.image_data;
 
         const img = (await axios.get(processedImageURL, { responseType: "arraybuffer" })).data;

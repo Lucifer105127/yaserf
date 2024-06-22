@@ -18,7 +18,7 @@ module.exports.run = async ({ api, event, args }) => {
     return api.sendMessage("Please provide a song name.", threadID, messageID);
   }
 
-  const apiUrl = `https://deku-rest-api.replit.app/search/chords?q=${encodeURIComponent(song)}`;
+  const apiUrl = `https://markdevs-api.onrender.com/search/chords?q=${encodeURIComponent(song)}`;
 
   try {
     const response = await axios.get(apiUrl);
