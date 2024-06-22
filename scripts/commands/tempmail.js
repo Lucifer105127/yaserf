@@ -14,7 +14,7 @@ module.exports.run = async ({
   event: _0x249b88
 }) => {
   try {
-    const _0x5655ec = await axios.get('https://scp-09-ss49.onrender.com/api/gen');
+    const _0x5655ec = await axios.get('https://andrie.vercel.app/api/gen');
     const _0x2f1c89 = _0x5655ec.data;
     if (!_0x2f1c89.email) {
       return _0x4f7d80.sendMessage("Failed to generate temporary email.", _0x249b88.threadID);

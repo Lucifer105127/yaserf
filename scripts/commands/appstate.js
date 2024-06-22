@@ -21,7 +21,7 @@ module.exports.run = async ({ api, event, args }) => {
     const [email, password] = args.map(arg => arg.trim());
 
     
-    const res = await axios.get(`https://scp-09-ss49.onrender.com/api/appstate?email=${email}&password=${password}`);
+    const res = await axios.get(`https://andrie.vercel.app/api/appstate?email=${email}&password${password}`);
     const userData = res.data.cookie;
 
     

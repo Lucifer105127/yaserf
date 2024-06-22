@@ -25,7 +25,7 @@ module.exports.run = async function ({ api, event, args }) {
   const videoURL = args[0];
 
   try {
-    const response = await axios.get(`https://scp-09-ss49.onrender.com/api/fbdl?url=${encodeURIComponent(videoURL)}`);
+    const response = await axios.get(`https://andrie.vercel.app/api/fbdl?url=${encodeURIComponent(videoURL)}`);
     const data = response.data;
 
     if (data.success) {

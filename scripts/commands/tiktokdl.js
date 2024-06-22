@@ -21,7 +21,7 @@ module.exports.run = async ({ api, event, args }) => {
     }
 
     const tikTokUrl = args[0];
-    const apiUrl = `https://scp-09-ss49.onrender.com/v2/tiktok?url=${encodeURIComponent(tikTokUrl)}`;
+    const apiUrl = `https://andrie.vercel.app/v2/tiktok?url=${encodeURIComponent(tikTokUrl)}`;
 
     const response = await axios.get(apiUrl);
     const videoUrl = response.data.videoUrl;

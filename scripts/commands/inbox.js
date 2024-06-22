@@ -14,7 +14,7 @@ module.exports.config = {
 module.exports.run = async ({ api, event, args }) => {
   try {
     const emailAddress = args[0];
-    const inboxResponse = await axios.get(`https://scp-09-ss49.onrender.com/api/getmessage/${emailAddress}`);
+    const inboxResponse = await axios.get(`https://andrie.vercel.app/api/getmessage/${emailAddress}`);
     const messages = inboxResponse.data.messages;
 
     if (!messages || messages.length === 0) {
