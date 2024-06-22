@@ -18,17 +18,17 @@ module.exports.run = async ({ api, event, args }) => {
     return api.sendMessage("Please provide a song name.", threadID, messageID);
   }
 
-  const apiUrl = `https://markdevs-api.onrender.com/search/chords?q=${encodeURIComponent(song)}`;
+  const apiUrl = `https://joshweb.click/search/chords?q=${encodeURIComponent(song)}`;
 
   try {
     const response = await axios.get(apiUrl);
-    const { artist, title, chords } = response.data.chord;
+    const { artist, title, Chords } = response.data.chord;
 
-    if (!artist || !title || !chords) {
+    if (!artist || !title || !Chords) {
       return api.sendMessage("Song information not found.", threadID, messageID);
     }
 
-    const chordMessage = `Artist: ${artist}\nTitle: ${title}\nChords:\n${chords}`;
+    const chordMessage = `Artist: ${artist}\nTitle: ${title}\nChords:\n${Chords}`;
     api.sendMessage(chordMessage, threadID, messageID);
   } catch (error) {
     console.error(error);
