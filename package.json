@@ -65,6 +65,7 @@
         "totp-generator": "^0.0.13",
         "tweetnacl-sealedbox-js": "^1.2.0",
         "tweetnacl-util": "^0.15.1",
+        "ultimate-guitar": "^1.0.3",
         "websocket-stream": "latest",
         "wikijs": "^6.4.1",
         "youtube-search-api": "^1.1.1",
