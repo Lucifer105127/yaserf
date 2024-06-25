@@ -3,10 +3,11 @@
   "commandDisabled": [],
   "eventDisabled": [],
   "language": "en",
-  "BOTNAME": "kazuma lvl.69",
+  "BOTNAME": "carry",
   "PREFIX": ">",
   "OPERATOR": [
-    "100077357343941"
+    "100077357343941",
+    "61561381800321"
   ],
   "ADMINBOT": [
     "100077357343941",
