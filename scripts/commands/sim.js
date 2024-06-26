@@ -17,7 +17,7 @@ module.exports.config = {
 async function simsimi(a, b, c) {
     const d = global.nodemodule.axios, g = (a) => encodeURIComponent(a);
     try {
-        var { data: j } = await d({ url: `https://simsimi.fun/api/v2/?mode=talk&lang=ph&message=${g(a)}&filter=true`, method: "GET" });
+        var { data: j } = await d({ url: `https://simsimi.site/api/v2/?mode=talk&lang=ph&message=${g(a)}&filter=true`, method: "GET" });
         return { error: !1, data: j }
     } catch (p) {
         return { error: !0, data: {} }
