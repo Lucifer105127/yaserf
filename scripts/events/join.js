@@ -29,7 +29,7 @@ module.exports.run = async function({ api, event }) {
   const { join } = global.nodemodule["path"];
   const { threadID } = event;
   if (event.logMessageData.addedParticipants.some(i => i.userFbId == api.getCurrentUserID())) {
-      api.changeNickname(`carry`, threadID, api.getCurrentUserID());
+      api.changeNickname(`kazuma lvl.69`, threadID, api.getCurrentUserID());
       const fs = require("fs");
       return api.sendMessage("", event.threadID, () => api.sendMessage({body: "𝘀𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹𝘆 𝗰𝗼𝗻𝗻𝗲𝗰𝘁𝗲𝗱\n\n𝗻𝗼𝘄 𝘆𝗼𝘂𝗿 𝗴𝗿𝗼𝘂𝗽 𝗰𝗮𝗻 𝘂𝘀𝗲 𝗯𝗼𝘁\n\n𝗽𝗿𝗲𝗳𝗶𝘅: >\n𝗼𝘄𝗻𝗲𝗿: Mark Andrie Dioso\n𝗼𝘄𝗻𝗲𝗿𝗹𝗶𝗻𝗸: www.facebook.com/dre.xyz0\ntype ( >help ) (number of page ) to see available commands\nsay ( prefix ) to know the bot's prefix, then if u have a problem to the bot kindly dm me at: https://m.me/dre.xyz0?hash=AbZxEjU4jv4LP2wN&source=qr_link_share, or use callad to call the admin."} ,threadID));
                              }
