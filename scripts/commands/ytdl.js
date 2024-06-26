@@ -1,64 +1,59 @@
-const axios = require('axios');
-const fs = require('fs');
-const path = require("path");
 module.exports.config = {
-  'name': 'ytdl',
-  'version': "1.0.0",
-  'hasPermission': 0x0,
-  'credits': "Rickciel",
-  'usePrefix': true,
-  'description': "Download Random Videos from YT",
-  'commandCategory': "Tools",
-  'usages': "[ YouTube URL ]",
-  'cooldowns': 0x5
+  name: "ytdl",
+  version: "1.0.0", 
+  hasPermssion: 0,
+  credits: "𝙰𝚒𝚗𝚣",
+  description: "Facebook downloader",
+  usePrefix: true,
+  commandCategory: "random",
+  usages: "[facbookvideolink]",
+  cooldowns: 1,
 };
-const downloadVideo = async (_0x698199, _0x7196b2) => {
-  try {
-    const _0x196bea = await axios.get(_0x698199, {
-      'responseType': "stream"
+
+module.exports.run = async ({ api, event, args, Users }) => {
+  const axios = require("axios");
+  const request = require("request");
+  const fs = require("fs");
+  let link = args[0];
+  if (!args[0])
+    return api.sendMessage(
+      "[!] Need a tiktok link to proceed.\nUse " +
+        global.config.PREFIX +
+        this.config.name +
+        " [Facebook video link]",
+      event.threadID,
+      event.messageID
+    );
+
+  // Fetch user data to get the user's name
+  const senderInfo = await Users.getData(event.senderID);
+  const senderName = senderInfo.name;
+
+  // Send initial message
+  api.sendMessage(
+    `🕟 | 𝙷𝚎𝚢 @${senderName}, 𝚈𝚘𝚞𝚛 𝚟𝚒𝚍𝚎𝚘 𝚒𝚜 𝚍𝚘𝚠𝚗𝚕𝚘𝚊𝚍𝚒𝚗𝚐, 𝙿𝚕𝚎𝚊𝚜𝚎 𝚠𝚊𝚒𝚝. . .`,
+    event.threadID,
+    event.messageID
+  );
+
+  axios.get(`https://andrie.vercel.app/api/ytdl?url=${link}`)
+    .then((res) => {
+      let callback = function () {
+        api.sendMessage(
+          `🟠 | 𝚅𝚒𝚍𝚎𝚘 𝚜𝚞𝚌𝚌𝚎𝚜𝚜𝚏𝚞𝚕𝚕𝚢 𝚍𝚘𝚠𝚗𝚕𝚘𝚊𝚍!, 𝚃𝚑𝚎 𝚟𝚒𝚍𝚎𝚘 𝚠𝚒𝚕𝚕 𝚋𝚎 𝚜𝚎𝚗𝚝 𝚒𝚗 𝚊 𝚏𝚎𝚠 𝚖𝚒𝚗𝚞𝚝𝚎𝚜, 𝚙𝚕𝚎𝚊𝚜𝚎 𝚠𝚊𝚒𝚝 𝚏𝚘𝚛 𝚊 𝚖𝚘𝚖𝚎𝚗𝚝 ${senderName}!`,
+          event.threadID
+        );
+
+        api.sendMessage(
+          {
+            attachment: fs.createReadStream(__dirname + `/cache/ytdl.mp4`),
+          },
+          event.threadID,
+          () => fs.unlinkSync(__dirname + `/cache/ytdl.mp4`)
+        );
+      };
+      request(res.data)
+        .pipe(fs.createWriteStream(__dirname + `/cache/ytdl.mp4`))
+        .on("close", callback);
     });
-    const _0x3920b9 = _0x196bea.data;
-    const _0x2fddfa = fs.createWriteStream(_0x7196b2);
-    return new Promise((_0x3508a9, _0x1c2a25) => {
-      _0x3920b9.pipe(_0x2fddfa);
-      _0x2fddfa.on("finish", () => _0x3508a9(_0x7196b2));
-      _0x2fddfa.on("error", _0x470147 => _0x1c2a25(_0x470147));
-    });
-  } catch (_0x2cd204) {
-    console.error(_0x2cd204);
-    return null;
-  }
-};
-module.exports.run = async function ({
-  api: _0xd74edb,
-  event: _0xd4bf03,
-  args: _0x25c5da
-}) {
-  if (_0x25c5da.length === 0x0) {
-    _0xd74edb.sendMessage("Please provide a YouTube video link.", _0xd4bf03.threadID);
-    return;
-  }
-  const _0x4818a2 = _0x25c5da[0x0];
-  const _0x68df57 = path.join(__dirname, "temp");
-  if (!fs.existsSync(_0x68df57)) {
-    fs.mkdirSync(_0x68df57);
-  }
-  try {
-    const _0x40e3d0 = 'video_' + Date.now() + ".mp4";
-    const _0x20a046 = path.join(_0x68df57, _0x40e3d0);
-    const _0xfa35be = "https://andrie.vercel.app/api/ytdl?url=" + encodeURIComponent(_0x4818a2);
-    const _0x294f46 = await downloadVideo(_0xfa35be, _0x20a046);
-    if (_0x294f46) {
-      _0xd74edb.sendMessage({
-        'attachment': fs.createReadStream(_0x294f46)
-      }, _0xd4bf03.threadID, () => {
-        fs.unlinkSync(_0x294f46);
-      });
-    } else {
-      _0xd74edb.sendMessage("Failed to download the video.", _0xd4bf03.threadID);
-    }
-  } catch (_0xbd2658) {
-    console.error(_0xbd2658);
-    _0xd74edb.sendMessage("An error occurred while downloading the video.", _0xd4bf03.threadID);
-  }
 };
