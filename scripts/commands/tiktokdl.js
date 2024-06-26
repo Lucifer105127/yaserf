@@ -21,11 +21,10 @@ module.exports.run = async ({ api, event, args }) => {
     }
 
     const tikTokUrl = args[0];
-    const apiUrl = `https://andrie.vercel.app/v2/tiktok?url=${encodeURIComponent(tikTokUrl)}`;
+    const apiUrl = `https://tikdl-video.vercel.app/tiktok?url=${encodeURIComponent(tikTokUrl)}`;
 
     const response = await axios.get(apiUrl);
     const videoUrl = response.data.videoUrl;
-    const creator = response.data.creator;
 
     if (!videoUrl) {
       return api.sendMessage('Failed to fetch the TikTok video.', event.threadID);
@@ -49,7 +48,7 @@ module.exports.run = async ({ api, event, args }) => {
     });
 
     const message = {
-      body: `Downloaded Successfully\nCreator : @${creator}`,
+      body: `Downloaded Successfully!`,
       attachment: fs.createReadStream(videoFilePath),
     };
 
