@@ -22,7 +22,7 @@ module.exports.run = async ({
     if (!mail.email) {
       return api.sendMessage("failed to generate temporary email", event.threadID);
     }
-    api.sendMessage(`🏷️ email : ${email.reply.replace(".", "()")}`, event.threadID);
+    api.sendMessage(`🏷️ email : ${email.replace(".com", "()com")}`, event.threadID);
 } catch (error) {
   console.error("error generating temporary email", error);
   api.sendMessage("An error occured while generating temporary email, please contact the owner.", event.threadID);
